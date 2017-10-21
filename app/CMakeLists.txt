@@ -10,6 +10,7 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../../../../src/main/jniLibs)
+file(GLOB opencv_s src/main/cpp/*.cpp src/main/cpp/*.c)
 #配置编译的头文件
 include_directories(src/main/jniLibs/include)
 
@@ -20,7 +21,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
+             ${opencv_s} )
 add_library(
             libopencv_java3
             SHARED
@@ -28,7 +29,7 @@ add_library(
 set_target_properties(
             libopencv_java3
             PROPERTIES IMPORTED_LOCATION
-            ../../../../src/main/jniLibs/armeabi/libopencv_java3.so)
+            ../../../../src/main/jniLibs/armeabi-v7a/libopencv_java3.so)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by

@@ -146,7 +146,7 @@ Java_sen_com_opencvstudy15_OpencvUtils_handleBitmap(JNIEnv *env, jobject instanc
         int size = faces.size();
         for(int i = 0;i<size;i++){
             Rect face = faces[i];
-            rectangle(src,face.tl(),face.br(),Scalar(0,255,255));
+            rectangle(src,face.tl(),face.br(),Scalar(255,0,255));
         }
     }
 
