@@ -16,6 +16,7 @@ public class OpencvUtils {
     //
     public native void handleBitmap(Bitmap bitmap);
     public native void setSurface(Surface surface,int width,int height);
+    public static native Bitmap getIdCardNum(Bitmap srcBitmap, Bitmap templeBitmap , Bitmap.Config config );
 
 
 

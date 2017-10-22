@@ -6,9 +6,10 @@
     <!-- 其他比如摄像头的，项目需要的在配置 -->
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PhotoActivity"
+            android:launchMode="singleTask"
+            android:name=".NarActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name="imagepicker.ui.BaseActivity" />
         <activity
             android:name="imagepicker.ui.ImageGridActivity"
@@ -49,12 +49,20 @@
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:theme="@style/ImagePickerThemeFullScreen" />
-
         <activity
             android:name="imagepicker.ui.ImagePreviewDelActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:theme="@style/ImagePickerThemeFullScreen" />
+        <activity
+            android:launchMode="singleTop"
+            android:name=".IDCardActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".FaceActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>
