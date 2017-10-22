@@ -42,7 +42,7 @@ public class IDCardActivity extends AppCompatActivity {
     private TessBaseAPI baseApi;
     private ProgressDialog progressDialog;
 
-    private String language = "cn";
+    private String language = "eng";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +96,11 @@ public class IDCardActivity extends AppCompatActivity {
                 baseApi = new TessBaseAPI();
                 try {
                     InputStream is = null;
-                    is = getAssets().open(language + ".traineddata");
                     File file = new File("/sdcard/tess/tessdata/" + language + ".traineddata");
+                    if (file.exists()){
+                        return baseApi.init("/sdcard/tess", language);
+                    }
+                    is = getAssets().open(language + ".traineddata");
                     if (!file.exists()) {
                         file.getParentFile().mkdirs();
                         FileOutputStream fos = new FileOutputStream(file);
